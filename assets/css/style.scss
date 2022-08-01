@@ -21,14 +21,15 @@ body {
     margin-bottom: 40px;
 }
 .container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    grid-template-rows: 1fr;
     width: 100%;
     height: 100vh;
     gap: 30px;
     
     .container_add {
-        width: 300px;
+        width: 350px;
         display: flex;
         height: 100vh;
         flex-direction: column;
@@ -37,24 +38,19 @@ body {
         background-color: #30475E;
         box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.596);
         color: #fff;
-    }
-    .div_add {
-        height: 100vh;
+        padding: 0px 20px;
         position: fixed;
-        .upd {
-            width: 200px;
-            font-size: 15px;
-        }
     }
+
     .div_inputs {
         display: flex;
         flex-direction: column;
 
-        label {
+        .label_inputs {
             margin-bottom: 5px;
         }
         #title {
-            width: 100%;
+            width: 250px;
             font-size: 13px;
             padding: 7px;
             border-radius: 5px;
@@ -63,6 +59,7 @@ body {
             margin-bottom: 10px;
         }
         #conteudo {
+            width: 250px;
             height: 100px;
             border-radius: 5px;
             padding: 7px;
@@ -91,7 +88,7 @@ body {
         width: 90%;
         padding: 20px;
         border-radius: 10px;
-        grid-area: l;
+        grid-area: 1/2/1/2;
     }
 }
 
@@ -130,23 +127,34 @@ body {
     transform: scale(101%);
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
+.div3 {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    gap: 5px;
 
-.btn_remove {
-    margin-top: 10px;
-    align-self: flex-end;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #314f63;
-    cursor: pointer;
-    transition: all 0.4s;
-    font-family: 'Roboto Condensed', sans-serif;
-    border: 2px solid #fff;
-    color: #fff;
-}
-.btn_remove:hover {
-    background-color: rgba(255, 0, 0, 0.541);
+    .btn_create,.btn_editar {
+        align-self: flex-end;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #314f63;
+        cursor: pointer;
+        transition: all 0.4s;
+        font-family: 'Roboto Condensed', sans-serif;
+        border: 2px solid #fff;
+        color: #fff;
+    }
+    .btn_create:hover {
+        background-color: rgba(255, 0, 0, 0.541);
+    }    
+    .btn_editar:hover {
+        background-color: #609092;
+    }
+    .icon_editar {
+        width: 15px;
+    }
 }
 
 @keyframes remove {
@@ -157,14 +165,14 @@ body {
         transform: translateX(200%);
     }
 }
-
-@media (max-width: 600px) {
+// Responsividade
+@media (max-width: 790px) {
     .container {
         display: flex;
         flex-direction: column;
         width: 100%;
         height: 100vh;
-        gap: 30px;
+        gap: 0;
         
             .container_add {
                 width: 100%;
@@ -174,7 +182,7 @@ body {
                 align-items: center;
                 gap: 10px;
                 padding-bottom: 40px;
-                transition: 0.4s;
+                position: static;
         
                 background-color: #30475E;
                 box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.349);
@@ -183,13 +191,11 @@ body {
             }
         }
 
-        .div_info {
-            width: 300px;
-            font-size: 15px;
-        }
-
         .lista {
-            width: 100%;
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            width: 100vh;
             padding: 0px 20px;
         }
     }

@@ -1,4 +1,3 @@
-
 function update(id, obj) {
     title.value = obj.titulo
     conteudo.value = obj.conteudo
