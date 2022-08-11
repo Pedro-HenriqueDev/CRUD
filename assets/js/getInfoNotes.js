@@ -1,9 +1,8 @@
 class Gravar {
     constructor() {
         let id = localStorage.getItem('id')
-        let vazio = localStorage.getItem(1)
 
-        if(id === null || vazio == null) {
+        if(id === null) {
             localStorage.setItem('id', 0)
         } 
     }
